@@ -177,7 +177,7 @@ app.get("/logout",(req,res,next)=>
 })
 
 //index route
-app.get("/listings",wrapasync(async (req,res)=>
+app.get("/",wrapasync(async (req,res)=>
 {
   const alllists= await List.find({})
   req.flash("success","New list added successfully")
