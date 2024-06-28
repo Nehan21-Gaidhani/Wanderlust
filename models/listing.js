@@ -8,9 +8,8 @@ const listschema = new mongoose.Schema(
         },
         description:String,
         image:{
-            type:String,
-            set : (v) => v === "" ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW-lXuIwTb8jE7GF1ENt16ltbUiOOBtZ1Bxg&s" : v ,
-            default:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW-lXuIwTb8jE7GF1ENt16ltbUiOOBtZ1Bxg&s"
+            url:String,
+            filename:String,
         },
         price:Number,
         location:String,
