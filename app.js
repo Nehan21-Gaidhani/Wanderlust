@@ -99,7 +99,7 @@ app.listen(port,(req,res)=>
 
 app.get("/",(req,res)=>
 {
-    res.redirect("listings")
+    res.redirect("/listings")
 })
 
 
