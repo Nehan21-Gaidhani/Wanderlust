@@ -131,5 +131,11 @@ router.get("/",wrapasync(async (req,res)=>
         res.redirect("/listings")
     }))
     
+
+    app.get("/category/:category", async (req, res) => {
+        const { category } = req.params;
+        const lists = await List.find({ category });
+        res.render("listings/cat.ejs", { lists });
+    });
     module.exports = router
     
