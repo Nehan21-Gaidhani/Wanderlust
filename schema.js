@@ -9,6 +9,7 @@ const listingschema = Joi.object(
             price:Joi.number().min(0),
             location:Joi.string().required(),
             country:Joi.string().required(),
+            category: Joi.string().valid('rooms', 'mountains', 'pools', 'villa', 'arctic', 'beach', 'farms', 'lake', 'island').required(),
 
         })
     }

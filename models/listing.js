@@ -21,7 +21,12 @@ const listschema = new mongoose.Schema(
         owner:{
            type:mongoose.Schema.Types.ObjectId ,
             ref:"User"
-        }
+        },
+        category: {
+            type: String,
+            required: true,
+            enum: ['rooms', 'mountains', 'pools', 'villa', 'arctic', 'beach', 'farms', 'lake', 'island','houseboats','camping','tropical','desert','treehouse','luxe','cities']
+          },
     }
 )
 
