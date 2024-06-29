@@ -102,6 +102,11 @@ app.get("/",(req,res)=>
     res.redirect("/listings")
 })
 
+app.get("/listings/category/:category", async (req, res) => {
+    const { category } = req.params;
+    const lists = await List.find({ category });
+    res.render("listings/cat.ejs", { lists });
+});
 
 //savedRedirectUrl
 // module.exports.saveRedirectUrl = (req,res,next) =>

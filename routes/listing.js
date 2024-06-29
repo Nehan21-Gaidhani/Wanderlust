@@ -65,7 +65,7 @@ router.get("/",wrapasync(async (req,res)=>
         {   
             let url =req.file.path
             let filename=req.file.filename
-        const { title, description, image, price, location, country } = req.body.listing;
+        const { title, description, image, price, location,category, country } = req.body.listing;
     
         const newlist = new List({
             title,
@@ -74,6 +74,7 @@ router.get("/",wrapasync(async (req,res)=>
             price,
             location,
             country,
+            category,
             owner: req.user._id
         });
         newlist.image={url,filename}
