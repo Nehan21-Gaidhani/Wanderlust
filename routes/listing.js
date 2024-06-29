@@ -132,7 +132,7 @@ router.get("/",wrapasync(async (req,res)=>
     }))
     
 
-    app.get("/category/:category", async (req, res) => {
+    router.get("/category/:category", async (req, res) => {
         const { category } = req.params;
         const lists = await List.find({ category });
         res.render("listings/cat.ejs", { lists });
