@@ -77,6 +77,7 @@ router.get("/",wrapasync(async (req,res)=>
             category,
             owner: req.user._id
         });
+        console.log(category)
         newlist.image={url,filename}
         await newlist.save();
         req.flash("success", "New list added successfully");
