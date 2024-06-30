@@ -102,7 +102,7 @@ router.get("/",wrapasync(async (req,res)=>
       
         const { id } = req.params;
        
-        const { title, description, image, price, location, country } = req.body.listing;
+        const { title, description, image, price, location, category,country } = req.body.listing;
         
        const list= await List.findByIdAndUpdate(id, {
             title,
@@ -110,6 +110,7 @@ router.get("/",wrapasync(async (req,res)=>
             image,
             price,
             location,
+            category,
             country
         });
        if(typeof req.file != "undefined"){
