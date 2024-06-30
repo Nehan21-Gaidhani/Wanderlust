@@ -25,7 +25,7 @@
 
              <div class="mb-3">
                     <label for="image" class="form-label">New Image</label>
-                <input name="listing[image]"  type="file" class="form-control" required>
+                <input name="listing[image]"  type="file" class="form-control" >
             </div>
             <div class="row">
             <div class="mb-3 col-md-4">
@@ -39,6 +39,11 @@
             <div class="invalid-feedback">Country should be entered</div>
         </div>
         </div>
+        <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+        <input name="listing[category]" value="<%=list.category %>" type="text" class="form-control" >
+        <!-- <div class="invalid-feedback">category needs to be specified</div> -->
+     </div>
              <div class="mb-3">
                     <label for="location" class="form-label">Location</label>
                 <input name="listing[location]" value="<%=list.location %>" type="text" class="form-control" required>
