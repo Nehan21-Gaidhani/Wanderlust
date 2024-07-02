@@ -1,60 +1,94 @@
 <style>
-  .btn-search{
+  .btn-search {
     background-color: #fe424d;
-    color:#fff;
+    color: #fff;
     border-radius: 25px;
-    padding:0 1rem 0 1rem;
+    padding: 0 1rem;
   }
 
-  .btn-search:hover{
+  .btn-search:hover {
     background-color: #fe424d;
-    color:#fff;
+    color: #fff;
   }
 
   .btn-search i {
-     display:inline;
-     margin-right:0.5rem;
+    display: inline;
+    margin-right: 0.5rem;
   }
 
-  .search-inp{
+  .search-inp {
     border-radius: 25px;
-    padding:0.5rem 3rem 0.5rem 3rem;
+    padding: 0.5rem 3rem;
+  }
+
+  .profile-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .profile-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .profile-dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .profile-dropdown-content a:hover {background-color: #f1f1f1;}
+
+  .profile-dropdown:hover .profile-dropdown-content {
+    display: block;
+  }
+
+  .profile-dropdown:hover .profile-btn {
+    background-color: #3e8e41;
   }
 </style>
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-    <div class="container-fluid">
-      
-      <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
     
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" href="/listings">Explore</a>
-        </div>
-         <div class="navbar-nav ms-auto">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations" aria-label="Search">
-            <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-          </form>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        
-        </div>
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link " href="/listings/new">Add your property</a>
-          <% if(!curUser) { %>
-          <a class="nav-link " href="/signup"><b>Signup</b></a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+      </div>
+
+      <div class="navbar-nav ms-auto">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations" aria-label="Search">
+          <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+        </form>
+      </div>
+
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">Add your property</a>
+        <% if (!curUser) { %>
+          <a class="nav-link" href="/signup"><b>Signup</b></a>
           <a class="nav-link" href="/login"><b>Login</b></a>
-          <% } %>
-          <% if(curUser) { %>
-            <i class="fa-solid fa-user"></i>
-            <%=curUser.username%>
-          <a class="nav-link" href="/logout">Logout</a>
-          <% } %>
-    
-        </div>
+        <% } %>
+        <% if (curUser) { %>
+          <div class="profile-dropdown">
+            <button class="nav-link profile-btn"><i class="fa-solid fa-user"></i> <%= curUser.username %></button>
+            <div class="profile-dropdown-content">
+              <a href="/profile">Profile</a>
+              <a href="/logout">Logout</a>
+            </div>
+          </div>
+        <% } %>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
