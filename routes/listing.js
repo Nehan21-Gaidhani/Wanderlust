@@ -38,11 +38,9 @@ router.get("/",wrapasync(async (req,res)=>
     
  //create route       
     router.get("/new",isLoggedin ,(req,res)=>             //pehle likha show ke kyunki error ara tha id aur new mei confusion hora tha server ko
-        {   if(curUser){
-            res.render("listings/new.ejs")}
-            else{
-               req.flash("error","You must be logged in")   
-            }
+        {   
+            res.render("listings/new.ejs")
+           
         })
     
 //show route
